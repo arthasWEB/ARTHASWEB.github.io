@@ -40,17 +40,19 @@
 }
 
 .welcome-title {
+    font-family: 'Cinzel', serif;
     font-size: clamp(2.5rem, 8vw, 5rem);
     font-weight: 900;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    background: linear-gradient(180deg, #ffffff 0%, #a8d8ff 40%, #4da6ff 70%, #0066cc 100%);
+    background: linear-gradient(180deg, #ffffff 0%, #b8e4ff 30%, #6bc4ff 60%, #0088ff 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    filter: drop-shadow(0 0 30px rgba(0, 120, 255, 0.8));
+    filter: drop-shadow(0 0 40px rgba(0, 120, 255, 0.9)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
     margin-bottom: 40px;
     line-height: 1.2;
+    text-shadow: 0 0 60px rgba(0, 168, 255, 0.6);
 }
 
 .enter-btn {
@@ -92,6 +94,7 @@
     transform: translateY(-3px);
     box-shadow: 
         0 5px 30px rgba(0, 120, 255, 0.7),
+        0 0 40px rgba(0, 168, 255, 0.5),
         inset 0 0 30px rgba(0, 120, 255, 0.3);
     background: linear-gradient(135deg, rgba(0, 102, 204, 0.9), rgba(0, 168, 255, 0.7));
 }
@@ -100,7 +103,7 @@
     transform: translateY(-1px);
 }
 
-/* Overlay oscuro para el menú de bienvenida */
+/* Overlay oscuro para el menú de bienvenida - mejor contraste del texto */
 .welcome-menu::before {
     content: '';
     position: absolute;
@@ -108,7 +111,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(10, 14, 23, 0.6);
+    background: rgba(10, 14, 23, 0.75);
     z-index: 1;
 }
 
@@ -118,8 +121,12 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: 'Cinzel', serif;
+    font-family: 'Outfit', 'Cinzel', sans-serif;
     background: 
         url('../imagenes/arthas.png') no-repeat center center,
         linear-gradient(180deg, #0a0e17 0%, #0d1b2a 30%, #1b263b 60%, #0d1b2a 100%);
@@ -185,6 +192,7 @@ body::before {
 }
 
 .main-title {
+    font-family: 'Cinzel', serif;
     font-size: clamp(2rem, 6vw, 4.5rem);
     font-weight: 900;
     letter-spacing: 0.15em;
@@ -253,16 +261,181 @@ body::before {
     position: relative;
 }
 
+/* SCROLL REVEAL ANIMATION */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* SOBRE NOSOTROS */
+.about-section {
+    width: 100%;
+    padding: 60px 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #4da6ff;
+    text-shadow: 0 0 20px rgba(0, 150, 255, 0.5);
+    margin-bottom: 30px;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.about-text {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    line-height: 1.8;
+    color: #c5d9f0;
+    font-weight: 400;
+}
+
+.about-tagline {
+    font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+    font-weight: 600;
+    color: #6bc4ff;
+    font-style: italic;
+    text-shadow: 0 0 15px rgba(0, 150, 255, 0.4);
+}
+
+/* RETO ARTHAS */
+.reto-section {
+    width: 100%;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.reto-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #ffffff;
+    text-shadow: 0 0 20px rgba(0, 150, 255, 0.6);
+    margin-bottom: 35px;
+}
+
+.reto-container {
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 35px 30px;
+    background: rgba(0, 50, 100, 0.2);
+    border: 1px solid rgba(0, 168, 255, 0.3);
+    border-radius: 20px;
+    box-shadow: 
+        0 0 30px rgba(0, 100, 200, 0.2),
+        inset 0 0 30px rgba(0, 100, 200, 0.05);
+}
+
+.reto-numbers {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.reto-slot {
+    width: 55px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #4da6ff;
+    background: rgba(0, 30, 60, 0.6);
+    border: 2px solid rgba(0, 168, 255, 0.5);
+    border-radius: 12px;
+    box-shadow: 
+        0 0 15px rgba(0, 120, 255, 0.3),
+        inset 0 0 15px rgba(0, 100, 200, 0.1);
+    overflow: hidden;
+    transition: transform 0.1s ease;
+}
+
+.reto-slot.spinning {
+    animation: slotSpin 0.08s ease-in-out infinite;
+    color: #6bc4ff;
+    box-shadow: 0 0 25px rgba(0, 168, 255, 0.5);
+}
+
+@keyframes slotSpin {
+    0%, 100% { transform: scale(1.05); opacity: 1; }
+    50% { transform: scale(0.98); opacity: 0.85; }
+}
+
+.reto-btn {
+    font-family: 'Outfit', 'Cinzel', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, rgba(0, 102, 204, 0.8), rgba(0, 168, 255, 0.6));
+    color: #ffffff;
+    border: 2px solid rgba(0, 168, 255, 0.8);
+    padding: 16px 35px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(0, 120, 255, 0.4);
+}
+
+.reto-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 5px 25px rgba(0, 120, 255, 0.6),
+        0 0 35px rgba(0, 168, 255, 0.4);
+    background: linear-gradient(135deg, rgba(0, 102, 204, 0.9), rgba(0, 168, 255, 0.7));
+}
+
+.reto-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.reto-message {
+    margin-top: 25px;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    color: #b3d9ff;
+    min-height: 2em;
+    font-weight: 500;
+}
+
+.reto-message.premio {
+    color: #6bc4ff;
+    font-weight: 700;
+    text-shadow: 0 0 15px rgba(0, 150, 255, 0.5);
+}
+
 .slogan-text {
+    font-family: 'Cinzel', serif;
     font-size: clamp(1.5rem, 4vw, 2.5rem);
     font-weight: 700;
     letter-spacing: 0.1em;
     color: #ffffff;
     text-shadow: 
         0 0 15px rgba(0, 150, 255, 0.6),
-        0 0 30px rgba(0, 100, 200, 0.4);
+        0 0 30px rgba(0, 100, 200, 0.4),
+        0 2px 4px rgba(0, 0, 0, 0.4);
     font-style: italic;
-    opacity: 0.9;
+    opacity: 0.95;
 }
 
 /* MENU SECTION */
@@ -286,6 +459,7 @@ body::before {
 }
 
 .menu-title {
+    font-family: 'Cinzel', serif;
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 900;
     letter-spacing: 0.15em;
@@ -297,27 +471,66 @@ body::before {
     margin-bottom: 50px;
 }
 
+.menu-category {
+    margin-bottom: 50px;
+}
+
+.menu-category:last-child {
+    margin-bottom: 0;
+}
+
+.category-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.3rem, 3vw, 1.6rem);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #4da6ff;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.category-icon {
+    font-size: 1.4em;
+}
+
 .menu-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.menu-item {
-    background: rgba(0, 50, 100, 0.15);
-    border: 1px solid rgba(0, 168, 255, 0.3);
-    border-radius: 15px;
-    padding: 30px 20px;
+.menu-item,
+.menu-card {
+    background: rgba(0, 50, 100, 0.2);
+    border: 1px solid rgba(0, 168, 255, 0.25);
+    border-radius: 16px;
+    padding: 28px 22px;
     position: relative;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 
-        0 0 20px rgba(0, 100, 200, 0.2),
+        0 4px 20px rgba(0, 50, 100, 0.3),
+        0 0 25px rgba(0, 100, 200, 0.15),
         inset 0 0 20px rgba(0, 100, 200, 0.05);
 }
 
-.menu-item::before {
+.menu-card {
+    text-align: center;
+}
+
+.menu-card .menu-card-icon {
+    display: block;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 8px rgba(0, 150, 255, 0.3));
+}
+
+.menu-item::before,
+.menu-card::before {
     content: '';
     position: absolute;
     top: -2px;
@@ -325,29 +538,34 @@ body::before {
     right: -2px;
     bottom: -2px;
     background: linear-gradient(45deg, transparent, rgba(0, 168, 255, 0.3), transparent);
-    border-radius: 15px;
+    border-radius: 16px;
     opacity: 0;
     transition: opacity 0.3s ease;
     z-index: -1;
 }
 
-.menu-item:hover::before {
+.menu-item:hover::before,
+.menu-card:hover::before {
     opacity: 1;
 }
 
-.menu-item:hover {
-    transform: translateY(-5px);
+.menu-item:hover,
+.menu-card:hover {
+    transform: translateY(-8px);
     box-shadow: 
-        0 10px 30px rgba(0, 100, 200, 0.4),
+        0 15px 40px rgba(0, 100, 200, 0.35),
+        0 0 35px rgba(0, 168, 255, 0.25),
         inset 0 0 30px rgba(0, 100, 200, 0.1);
+    border-color: rgba(0, 168, 255, 0.5);
 }
 
 .item-name {
-    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.2rem, 2.8vw, 1.6rem);
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     color: #4da6ff;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     text-shadow: 0 0 10px rgba(77, 166, 255, 0.5);
 }
 
@@ -481,6 +699,42 @@ body::before {
         padding: 40px 15px;
     }
 
+    .about-section {
+        padding: 45px 18px;
+    }
+
+    .reto-section {
+        padding: 45px 18px;
+    }
+
+    .reto-container {
+        padding: 28px 20px;
+    }
+
+    .reto-slot {
+        width: 48px;
+        height: 58px;
+        font-size: 2rem;
+    }
+
+    .reto-numbers {
+        gap: 10px;
+        margin-bottom: 25px;
+    }
+
+    .menu-section {
+        padding: 45px 15px;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .menu-category {
+        margin-bottom: 40px;
+    }
+
     .logo-section {
         padding: 40px 15px;
     }
@@ -515,6 +769,21 @@ body::before {
     .address-value::before,
     .address-value::after {
         display: none;
+    }
+
+    .reto-slot {
+        width: 42px;
+        height: 50px;
+        font-size: 1.7rem;
+    }
+
+    .reto-numbers {
+        gap: 8px;
+    }
+
+    .reto-btn {
+        padding: 14px 28px;
+        font-size: 1rem;
     }
 }
 
